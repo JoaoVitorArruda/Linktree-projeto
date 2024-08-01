@@ -82,6 +82,7 @@ body * {
   left: 0;
   transform: translateY(-50%);
   top: 50%;
+  animation: slide-back 0.3s;
 }
 
 #switch span {
@@ -95,9 +96,12 @@ body * {
   border-radius: 9999px;
 }
 
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.3s forwards;
 }
 
 /*links*/
@@ -159,13 +163,29 @@ footer {
   padding: 24px 0;
   text-align: center;
 }
- /*media queries*/
- @media (min-width: 700px) {
+/*media queries*/
+@media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg.png);
   }
   .light {
     --bg-url: url(./assets/bg-light.png);
   }
- }
- 
+}
+/*animations*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
